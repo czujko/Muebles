@@ -71,6 +71,7 @@ public class HelloController {
         s.getTransaction().commit();
         s.close();
         limpiarCampos();
+        mostrarMuebles();
     }
 
     public void onClickEliminar(ActionEvent actionEvent) {
@@ -82,6 +83,7 @@ public class HelloController {
         s.getTransaction().commit();
         s.close();
         limpiarCampos();
+        mostrarMuebles();
     }
 
     public void onClickModificar(ActionEvent actionEvent) {
@@ -103,7 +105,7 @@ public class HelloController {
         txtPrecio.setText("");
         txtMaterial.setText("");
         txtTipo.setText("");
-        tblView.getSelectionModel().clearSelection();
+        tblView.getItems().clear();
     }
 
     public void callBackClickOnTable(javafx.scene.input.MouseEvent mouseEvent) {
