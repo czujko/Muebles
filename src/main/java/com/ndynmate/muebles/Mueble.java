@@ -1,41 +1,30 @@
 package com.ndynmate.muebles;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table(name = "muebles")
+@Entity
 public class Mueble {
-    private int id;
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "tipo", nullable = false)
     private String tipo;
+
+    @Column(name = "material", nullable = false)
     private String material;
-    private int precio;
 
-    public Mueble() {
+    @Column(name = "precio", nullable = false)
+    private Integer precio;
+
+    public Integer getPrecio() {
+        return precio;
     }
 
-    public Mueble(String tipo, String material, int precio) {
-        this.tipo = tipo;
-        this.material = material;
+    public void setPrecio(Integer precio) {
         this.precio = precio;
-    }
-
-    public Mueble(int id, String tipo, String material, int precio) {
-        this.id = id;
-        this.tipo = tipo;
-        this.material = material;
-        this.precio = precio;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getMaterial() {
@@ -46,21 +35,19 @@ public class Mueble {
         this.material = material;
     }
 
-    public int getPrecio() {
-        return precio;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    @Override
-    public String toString() {
-        return "Mueble{" +
-                "id=" + id +
-                ", tipo='" + tipo + '\'' +
-                ", material='" + material + '\'' +
-                ", precio=" + precio +
-                '}';
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

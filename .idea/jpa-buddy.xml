@@ -2,5 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="51b45a93-294a-4c95-a8fc-01dbe8956705" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/ndynmate/muebles" />
   </component>
 </project>

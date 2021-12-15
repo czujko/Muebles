@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.ndynmate.muebles.Mueble" table="Muebles">
+    <class name="com.ndynmate.muebles.Mueble" table="muebles">
 
         <id name="id" column="id" type="integer">
             <generator class="increment"/>
