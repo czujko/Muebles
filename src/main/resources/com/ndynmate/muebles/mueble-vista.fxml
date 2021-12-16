@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="417.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ndynmate.muebles.HelloController">
+<AnchorPane prefHeight="452.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ndynmate.muebles.HelloController">
    <children>
       <TextField fx:id="txtId" layoutX="31.0" layoutY="38.0" prefHeight="25.0" prefWidth="44.0" />
       <TextField fx:id="txtTipo" layoutX="89.0" layoutY="38.0" />
@@ -20,7 +20,7 @@
       <Label layoutX="446.0" layoutY="21.0" text="Precio" />
       <Button fx:id="btnModificar" layoutX="365.0" layoutY="76.0" mnemonicParsing="false" onAction="#onClickModificar" prefHeight="25.0" prefWidth="114.0" text="Modificar" />
       <Button fx:id="btnEliminar" layoutX="481.0" layoutY="76.0" mnemonicParsing="false" onAction="#onClickEliminar" prefHeight="25.0" prefWidth="114.0" text="Eliminar" />
-      <TableView fx:id="tblView" layoutX="31.0" layoutY="139.0" onMousePressed="#callBackClickOnTable" prefHeight="246.0" prefWidth="565.0">
+      <TableView fx:id="tblView" layoutX="31.0" layoutY="170.0" onMousePressed="#callBackClickOnTable" prefHeight="246.0" prefWidth="565.0">
         <columns>
           <TableColumn fx:id="tblID" prefWidth="56.0" text="ID" />
           <TableColumn fx:id="tblTipo" prefWidth="163.0" text="Tipo" />
@@ -28,5 +28,7 @@
             <TableColumn fx:id="tblPrecio" minWidth="0.0" prefWidth="139.0" text="Precio" />
         </columns>
       </TableView>
+      <TextField fx:id="txtBuscar" layoutX="262.0" layoutY="132.0" prefHeight="25.0" prefWidth="211.0" />
+      <Button fx:id="btnBuscar" layoutX="480.0" layoutY="132.0" mnemonicParsing="false" onAction="#onClickBuscar" prefHeight="25.0" prefWidth="114.0" text="Buscar" />
    </children>
 </AnchorPane>

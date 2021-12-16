@@ -30,25 +30,29 @@ public class HelloController {
     @FXML
     public TableView<Mueble> tblView;
     @FXML
-    public TableColumn<Mueble,Integer> tblID;
+    public TableColumn<Mueble, Integer> tblID;
     @FXML
-    public TableColumn<Mueble,String> tblTipo;
+    public TableColumn<Mueble, String> tblTipo;
     @FXML
-    public TableColumn<Mueble,String> tblMaterial;
+    public TableColumn<Mueble, String> tblMaterial;
     @FXML
-    public TableColumn<Mueble,Integer> tblPrecio;
+    public TableColumn<Mueble, Integer> tblPrecio;
+    @FXML
+    public TextField txtBuscar;
+    @FXML
+    public Button btnBuscar;
 
-    public void initialize(){
+    public void initialize() {
         mostrarMuebles();
     }
 
     public void mostrarMuebles() {
         ObservableList<Mueble> muebles = tblView.getItems();
 
-        tblID.setCellValueFactory(new PropertyValueFactory<Mueble,Integer>("id"));
-        tblTipo.setCellValueFactory(new PropertyValueFactory<Mueble,String>("tipo"));
-        tblMaterial.setCellValueFactory(new PropertyValueFactory<Mueble,String>("material"));
-        tblPrecio.setCellValueFactory(new PropertyValueFactory<Mueble,Integer>("precio"));
+        tblID.setCellValueFactory(new PropertyValueFactory<Mueble, Integer>("id"));
+        tblTipo.setCellValueFactory(new PropertyValueFactory<Mueble, String>("tipo"));
+        tblMaterial.setCellValueFactory(new PropertyValueFactory<Mueble, String>("material"));
+        tblPrecio.setCellValueFactory(new PropertyValueFactory<Mueble, Integer>("precio"));
 
         tblView.setItems(muebles);
 
@@ -101,7 +105,7 @@ public class HelloController {
         mostrarMuebles();
     }
 
-    public void limpiarCampos(){
+    public void limpiarCampos() {
         txtPrecio.setText("");
         txtMaterial.setText("");
         txtTipo.setText("");
@@ -115,4 +119,23 @@ public class HelloController {
         txtMaterial.setText(m.getMaterial());
         txtPrecio.setText(String.valueOf(m.getPrecio()));
     }
+
+    public void onClickBuscar(ActionEvent actionEvent) {
+        Session s = HibernateUtil.openSession();
+        s.beginTransaction();
+        ArrayList<Mueble> mueblesList = (ArrayList<Mueble>) s.createQuery(
+                "from Mueble where tipo like '%" + txtBuscar.getText() + "%' " +
+                        "or material like '%" + txtBuscar.getText() + "%' " +
+                        "or precio like '%" + txtBuscar.getText() + "%'").list();
+        s.getTransaction().commit();
+        s.close();
+        txtBuscar.setText("");
+        tblView.getItems().clear();
+        tblView.getItems().addAll(mueblesList);
+    }
 }
+
+
+
+
+
