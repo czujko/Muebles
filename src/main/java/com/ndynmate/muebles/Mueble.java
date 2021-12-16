@@ -2,11 +2,13 @@ package com.ndynmate.muebles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "muebles")
 @Entity
 public class Mueble {
+    @Id
     @Column(name = "id")
     private Integer id;
 

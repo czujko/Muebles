@@ -126,7 +126,8 @@ public class HelloController {
         ArrayList<Mueble> mueblesList = (ArrayList<Mueble>) s.createQuery(
                 "from Mueble where tipo like '%" + txtBuscar.getText() + "%' " +
                         "or material like '%" + txtBuscar.getText() + "%' " +
-                        "or precio like '%" + txtBuscar.getText() + "%'").list();
+                        "or precio like '%" + txtBuscar.getText() + "%' " +
+                        "or id like '%" + txtBuscar.getText() + "%'").list();
         s.getTransaction().commit();
         s.close();
         txtBuscar.setText("");
