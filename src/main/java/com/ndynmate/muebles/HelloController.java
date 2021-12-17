@@ -43,6 +43,7 @@ public class HelloController {
     public Button btnBuscar;
 
     public void initialize() {
+        txtId.setEditable(false);
         mostrarMuebles();
     }
 
